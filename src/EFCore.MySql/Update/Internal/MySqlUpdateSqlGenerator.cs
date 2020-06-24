@@ -117,11 +117,11 @@ namespace Pomelo.EntityFrameworkCore.MySql.Update.Internal
 
             AppendInsertCommandHeader(commandStringBuilder, name, schema, writeOperations);
             AppendValuesHeader(commandStringBuilder, writeOperations);
-            AppendValues(commandStringBuilder, writeOperations);
+            AppendValues(commandStringBuilder, name, schema, writeOperations);
             for (var i = 1; i < modificationCommands.Count; i++)
             {
                 commandStringBuilder.Append(",").AppendLine();
-                AppendValues(commandStringBuilder, modificationCommands[i].ColumnModifications.Where(o => o.IsWrite).ToList());
+                AppendValues(commandStringBuilder, name, schema, modificationCommands[i].ColumnModifications.Where(o => o.IsWrite).ToList());
             }
             commandStringBuilder.Append(SqlGenerationHelper.StatementTerminator).AppendLine();
 
@@ -141,9 +141,11 @@ namespace Pomelo.EntityFrameworkCore.MySql.Update.Internal
 
         protected override void AppendValues(
             [NotNull] StringBuilder commandStringBuilder,
+            [NotNull] string name,
+            [CanBeNull] string schema,
             [NotNull] IReadOnlyList<ColumnModification> operations)
         {
-            base.AppendValues(commandStringBuilder, operations);
+            base.AppendValues(commandStringBuilder, name, schema, operations);
 
             if (operations.Count == 0)
             {
