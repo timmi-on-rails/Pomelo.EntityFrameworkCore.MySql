@@ -33,24 +33,27 @@ namespace Pomelo.EntityFrameworkCore.MySql.Migrations.Internal
         {
         }
 
-        protected override IEnumerable<MigrationOperation> Add(IProperty target, DiffContext diffContext, bool inline = false)
+        protected override IEnumerable<MigrationOperation> Add(
+            [NotNull] IColumn target,
+            [NotNull] DiffContext diffContext,
+            bool inline = false)
         {
-            if (target.FindTypeMapping() is RelationalTypeMapping storeType)
-            {
-                var valueGenerationStrategy = MySqlValueGenerationStrategyCompatibility.GetValueGenerationStrategy(MigrationsAnnotations.For(target).ToArray());
+            string storeType = target.StoreType;
+            // TODO
+            MySqlValueGenerationStrategy valueGenerationStrategy = MySqlValueGenerationStrategy.None;
+            // MySqlValueGenerationStrategyCompatibility.GetValueGenerationStrategy(MigrationsAnnotations.For(target).ToArray());
 
-                // Ensure that null will be set for the columns default value, if CURRENT_TIMESTAMP has been required,
-                // or when the store type of the column does not support default values at all.
-                inline = inline ||
-                         (storeType.StoreTypeNameBase == "datetime" ||
-                          storeType.StoreTypeNameBase == "timestamp") &&
-                         (valueGenerationStrategy == MySqlValueGenerationStrategy.IdentityColumn ||
-                          valueGenerationStrategy == MySqlValueGenerationStrategy.ComputedColumn) ||
-                         storeType.StoreTypeNameBase.Contains("text") ||
-                         storeType.StoreTypeNameBase.Contains("blob") ||
-                         storeType.StoreTypeNameBase == "geometry" ||
-                         storeType.StoreTypeNameBase == "json";
-            }
+            // Ensure that null will be set for the columns default value, if CURRENT_TIMESTAMP has been required,
+            // or when the store type of the column does not support default values at all.
+            inline = inline ||
+                     (storeType == "datetime" ||
+                      storeType == "timestamp") &&
+                     (valueGenerationStrategy == MySqlValueGenerationStrategy.IdentityColumn ||
+                      valueGenerationStrategy == MySqlValueGenerationStrategy.ComputedColumn) ||
+                     storeType.Contains("text") ||
+                     storeType.Contains("blob") ||
+                     storeType == "geometry" ||
+                     storeType == "json";
 
             return base.Add(target, diffContext, inline);
         }
