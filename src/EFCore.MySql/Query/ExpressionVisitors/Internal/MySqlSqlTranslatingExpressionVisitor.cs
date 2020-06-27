@@ -11,9 +11,9 @@ namespace Pomelo.EntityFrameworkCore.MySql.Query.ExpressionVisitors.Internal
 
         public MySqlSqlTranslatingExpressionVisitor(
             RelationalSqlTranslatingExpressionVisitorDependencies dependencies,
-            IModel model,
+            QueryCompilationContext queryCompilationContext,
             QueryableMethodTranslatingExpressionVisitor queryableMethodTranslatingExpressionVisitor)
-            : base(dependencies, model, queryableMethodTranslatingExpressionVisitor)
+            : base(dependencies, queryCompilationContext, queryableMethodTranslatingExpressionVisitor)
         {
             _sqlExpressionFactory = dependencies.SqlExpressionFactory;
         }

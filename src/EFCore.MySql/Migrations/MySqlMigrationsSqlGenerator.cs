@@ -235,7 +235,7 @@ namespace Pomelo.EntityFrameworkCore.MySql.Migrations
                         IsUnique = index.IsUnique,
                         Filter = index.GetFilter()
                     };
-                    createIndexOperation.AddAnnotations(_migrationsAnnotations.For(index));
+                    //createIndexOperation.AddAnnotations(_migrationsAnnotations.For(index));
                     createIndexOperation.AddAnnotations(operation.GetAnnotations());
 
                     Generate(createIndexOperation, model, builder);
@@ -642,7 +642,7 @@ namespace Pomelo.EntityFrameworkCore.MySql.Migrations
                 builder
                     .Append(Dependencies.SqlGenerationHelper.DelimitIdentifier(operation.NewName))
                     .Append(" ")
-                    .Append(type)
+                    .Append(type.ToString())
                     .AppendLine(Dependencies.SqlGenerationHelper.StatementTerminator);
 
                 EndStatement(builder);

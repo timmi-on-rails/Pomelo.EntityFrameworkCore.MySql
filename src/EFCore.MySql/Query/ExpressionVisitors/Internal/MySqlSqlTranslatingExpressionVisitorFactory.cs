@@ -19,7 +19,7 @@ namespace Pomelo.EntityFrameworkCore.MySql.Query.ExpressionVisitors.Internal
             QueryableMethodTranslatingExpressionVisitor queryableMethodTranslatingExpressionVisitor)
             => new MySqlSqlTranslatingExpressionVisitor(
                 _dependencies,
-                queryCompilationContext.Model,
+                queryCompilationContext,
                 queryableMethodTranslatingExpressionVisitor);
     }
 }

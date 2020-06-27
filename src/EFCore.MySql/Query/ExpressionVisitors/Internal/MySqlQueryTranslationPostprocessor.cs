@@ -1,6 +1,7 @@
 ﻿using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore.Query;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure.Internal;
+using Pomelo.EntityFrameworkCore.MySql.Query.Internal;
 
 namespace Pomelo.EntityFrameworkCore.MySql.Query.ExpressionVisitors.Internal
 {
@@ -24,7 +25,7 @@ namespace Pomelo.EntityFrameworkCore.MySql.Query.ExpressionVisitors.Internal
 
             if (_options.IndexOptimizedBooleanColumns)
             {
-                query = new MySqlBoolOptimizingExpressionVisitor(SqlExpressionFactory).Visit(query);
+                //query = new MySqlBoolOptimizingExpressionVisitor(new MySqlSqlExpressionFactory(Dependencies)).Visit(query);
             }
 
             query = new MySqlCompatibilityExpressionVisitor(_options).Visit(query);

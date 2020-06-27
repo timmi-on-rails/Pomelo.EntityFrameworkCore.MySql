@@ -26,12 +26,11 @@ namespace Pomelo.EntityFrameworkCore.MySql.Internal
         {
             var definition = MySqlResources.LogDefaultDecimalTypeColumn(diagnostics);
 
-            var warningBehavior = definition.GetLogBehavior(diagnostics);
+            var warningBehavior = definition.WarningBehavior;
             if (warningBehavior != WarningBehavior.Ignore)
             {
                 definition.Log(
                     diagnostics,
-                    warningBehavior,
                     property.Name, property.DeclaringEntityType.DisplayName());
             }
 
@@ -67,12 +66,11 @@ namespace Pomelo.EntityFrameworkCore.MySql.Internal
         {
             var definition = MySqlResources.LogByteIdentityColumn(diagnostics);
 
-            var warningBehavior = definition.GetLogBehavior(diagnostics);
+            var warningBehavior = definition.WarningBehavior;
             if (warningBehavior != WarningBehavior.Ignore)
             {
                 definition.Log(
                     diagnostics,
-                    warningBehavior,
                     property.Name, property.DeclaringEntityType.DisplayName());
             }
 
@@ -118,12 +116,11 @@ namespace Pomelo.EntityFrameworkCore.MySql.Internal
         {
             var definition = MySqlResources.LogFoundColumn(diagnostics);
 
-            var warningBehavior = definition.GetLogBehavior(diagnostics);
+            var warningBehavior = definition.WarningBehavior;
             if (warningBehavior != WarningBehavior.Ignore)
             {
                 definition.Log(
                     diagnostics,
-                    warningBehavior,
                     l => l.LogDebug(
                         definition.EventId,
                         null,
@@ -159,12 +156,11 @@ namespace Pomelo.EntityFrameworkCore.MySql.Internal
         {
             var definition = MySqlResources.LogFoundForeignKey(diagnostics);
 
-            var warningBehavior = definition.GetLogBehavior(diagnostics);
+            var warningBehavior = definition.WarningBehavior;
             if (warningBehavior != WarningBehavior.Ignore)
             {
                 definition.Log(
                     diagnostics,
-                    warningBehavior,
                     foreignKeyName, tableName, principalTableName, onDeleteAction);
             }
 
@@ -183,12 +179,11 @@ namespace Pomelo.EntityFrameworkCore.MySql.Internal
         {
             var definition = MySqlResources.LogFoundDefaultSchema(diagnostics);
 
-            var warningBehavior = definition.GetLogBehavior(diagnostics);
+            var warningBehavior = definition.WarningBehavior;
             if (warningBehavior != WarningBehavior.Ignore)
             {
                 definition.Log(
                     diagnostics,
-                    warningBehavior,
                     schemaName);
             }
 
@@ -208,12 +203,11 @@ namespace Pomelo.EntityFrameworkCore.MySql.Internal
         {
             var definition = MySqlResources.LogFoundTypeAlias(diagnostics);
 
-            var warningBehavior = definition.GetLogBehavior(diagnostics);
+            var warningBehavior = definition.WarningBehavior;
             if (warningBehavior != WarningBehavior.Ignore)
             {
                 definition.Log(
                     diagnostics,
-                    warningBehavior,
                     typeAliasName, systemTypeName);
             }
 
@@ -233,12 +227,11 @@ namespace Pomelo.EntityFrameworkCore.MySql.Internal
         {
             var definition = MySqlResources.LogFoundPrimaryKey(diagnostics);
 
-            var warningBehavior = definition.GetLogBehavior(diagnostics);
+            var warningBehavior = definition.WarningBehavior;
             if (warningBehavior != WarningBehavior.Ignore)
             {
                 definition.Log(
                     diagnostics,
-                    warningBehavior,
                     primaryKeyName, tableName);
             }
 
@@ -258,12 +251,11 @@ namespace Pomelo.EntityFrameworkCore.MySql.Internal
         {
             var definition = MySqlResources.LogFoundUniqueConstraint(diagnostics);
 
-            var warningBehavior = definition.GetLogBehavior(diagnostics);
+            var warningBehavior = definition.WarningBehavior;
             if (warningBehavior != WarningBehavior.Ignore)
             {
                 definition.Log(
                     diagnostics,
-                    warningBehavior,
                     uniqueConstraintName, tableName);
             }
 
@@ -284,12 +276,11 @@ namespace Pomelo.EntityFrameworkCore.MySql.Internal
         {
             var definition = MySqlResources.LogFoundIndex(diagnostics);
 
-            var warningBehavior = definition.GetLogBehavior(diagnostics);
+            var warningBehavior = definition.WarningBehavior;
             if (warningBehavior != WarningBehavior.Ignore)
             {
                 definition.Log(
                     diagnostics,
-                    warningBehavior,
                     indexName, tableName, unique);
             }
 
@@ -310,12 +301,11 @@ namespace Pomelo.EntityFrameworkCore.MySql.Internal
         {
             var definition = MySqlResources.LogPrincipalTableNotInSelectionSet(diagnostics);
 
-            var warningBehavior = definition.GetLogBehavior(diagnostics);
+            var warningBehavior = definition.WarningBehavior;
             if (warningBehavior != WarningBehavior.Ignore)
             {
                 definition.Log(
                     diagnostics,
-                    warningBehavior,
                     foreignKeyName, tableName, principalTableName);
             }
 
@@ -337,12 +327,11 @@ namespace Pomelo.EntityFrameworkCore.MySql.Internal
         {
             var definition = MySqlResources.LogPrincipalColumnNotFound(diagnostics);
 
-            var warningBehavior = definition.GetLogBehavior(diagnostics);
+            var warningBehavior = definition.WarningBehavior;
             if (warningBehavior != WarningBehavior.Ignore)
             {
                 definition.Log(
                     diagnostics,
-                    warningBehavior,
                     foreignKeyName, tableName, principalColumnName, principalTableName);
             }
 
@@ -361,12 +350,11 @@ namespace Pomelo.EntityFrameworkCore.MySql.Internal
         {
             var definition = MySqlResources.LogMissingSchema(diagnostics);
 
-            var warningBehavior = definition.GetLogBehavior(diagnostics);
+            var warningBehavior = definition.WarningBehavior;
             if (warningBehavior != WarningBehavior.Ignore)
             {
                 definition.Log(
                     diagnostics,
-                    warningBehavior,
                     schemaName);
             }
 
@@ -385,12 +373,11 @@ namespace Pomelo.EntityFrameworkCore.MySql.Internal
         {
             var definition = MySqlResources.LogMissingTable(diagnostics);
 
-            var warningBehavior = definition.GetLogBehavior(diagnostics);
+            var warningBehavior = definition.WarningBehavior;
             if (warningBehavior != WarningBehavior.Ignore)
             {
                 definition.Log(
                     diagnostics,
-                    warningBehavior,
                     tableName);
             }
 
@@ -416,12 +403,11 @@ namespace Pomelo.EntityFrameworkCore.MySql.Internal
             // No DiagnosticsSource events because these are purely design-time messages
             var definition = MySqlResources.LogFoundSequence(diagnostics);
 
-            var warningBehavior = definition.GetLogBehavior(diagnostics);
+            var warningBehavior = definition.WarningBehavior;
             if (warningBehavior != WarningBehavior.Ignore)
             {
                 definition.Log(
                     diagnostics,
-                    warningBehavior,
                     l => l.LogDebug(
                         definition.EventId,
                         null,
@@ -448,12 +434,11 @@ namespace Pomelo.EntityFrameworkCore.MySql.Internal
         {
             var definition = MySqlResources.LogFoundTable(diagnostics);
 
-            var warningBehavior = definition.GetLogBehavior(diagnostics);
+            var warningBehavior = definition.WarningBehavior;
             if (warningBehavior != WarningBehavior.Ignore)
             {
                 definition.Log(
                     diagnostics,
-                    warningBehavior,
                     tableName);
             }
 
