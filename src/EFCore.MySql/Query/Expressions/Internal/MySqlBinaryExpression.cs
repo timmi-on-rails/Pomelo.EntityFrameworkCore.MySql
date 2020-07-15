@@ -54,7 +54,7 @@ namespace Pomelo.EntityFrameworkCore.MySql.Query.Expressions.Internal
                 ? new MySqlBinaryExpression(OperatorType, left, right, Type, TypeMapping)
                 : this;
 
-        public override void Print(ExpressionPrinter expressionPrinter)
+        protected override void Print(ExpressionPrinter expressionPrinter)
         {
             var requiresBrackets = RequiresBrackets(Left);
 

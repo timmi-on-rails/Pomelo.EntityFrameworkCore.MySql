@@ -41,8 +41,9 @@ namespace Pomelo.EntityFrameworkCore.MySql.Extensions
 
             if (property.ValueGenerated == ValueGenerated.Never)
             {
-                var sharedTablePrincipalPrimaryKeyProperty = property.FindSharedTableRootPrimaryKeyProperty();
-                return sharedTablePrincipalPrimaryKeyProperty?.GetValueGenerationStrategy();
+                //var sharedTablePrincipalPrimaryKeyProperty = property.FindSharedTableRootPrimaryKeyProperty();
+                //return sharedTablePrincipalPrimaryKeyProperty?.GetValueGenerationStrategy();
+                return null; // TODO
             }
 
             if (IsCompatibleIdentityColumn(property) && property.ValueGenerated == ValueGenerated.OnAdd)

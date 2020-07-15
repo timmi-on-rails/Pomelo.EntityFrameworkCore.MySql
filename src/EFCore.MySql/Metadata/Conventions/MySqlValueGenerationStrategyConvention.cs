@@ -39,14 +39,9 @@ namespace Pomelo.EntityFrameworkCore.MySql.Metadata.Conventions
         {
         }
 
-        /// <summary>
-        ///     Called after a model is finalized.
-        /// </summary>
-        /// <param name="modelBuilder"> The builder for the model. </param>
-        /// <param name="context"> Additional information associated with convention execution. </param>
-        public virtual void ProcessModelFinalized(
-            IConventionModelBuilder modelBuilder, IConventionContext<IConventionModelBuilder> context)
+        public virtual IModel ProcessModelFinalized(IModel model)
         {
+            return model;
         }
     }
 }

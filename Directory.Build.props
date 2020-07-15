@@ -27,7 +27,7 @@
 
   <PropertyGroup>
     <DefaultNetCoreTargetFramework>netcoreapp3.1</DefaultNetCoreTargetFramework>
-    <DefaultNetStandardTargetFramework>netstandard2.0</DefaultNetStandardTargetFramework>
+    <DefaultNetStandardTargetFramework>netstandard2.1</DefaultNetStandardTargetFramework>
   </PropertyGroup>
 
   <PropertyGroup>

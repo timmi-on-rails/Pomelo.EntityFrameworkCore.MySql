@@ -130,7 +130,7 @@ namespace Pomelo.EntityFrameworkCore.MySql.Query.Expressions.Internal
         public override string ToString() =>
             $"{_valueExpression} COLLATE {_collation}";
 
-        public override void Print(ExpressionPrinter expressionPrinter)
+        protected override void Print(ExpressionPrinter expressionPrinter)
         {
             expressionPrinter.Append(ToString()); // TODO: ist this correct?
         }

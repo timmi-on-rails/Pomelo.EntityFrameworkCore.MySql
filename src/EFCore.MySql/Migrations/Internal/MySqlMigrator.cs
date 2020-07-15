@@ -13,6 +13,7 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions.Infrastructure;
 
 namespace Pomelo.EntityFrameworkCore.MySql.Migrations.Internal
 {
@@ -42,6 +43,7 @@ namespace Pomelo.EntityFrameworkCore.MySql.Migrations.Internal
             [NotNull] IRelationalConnection connection,
             [NotNull] ISqlGenerationHelper sqlGenerationHelper,
             [NotNull] ICurrentDbContext currentContext,
+            [NotNull] IConventionSetBuilder conventionSetBuilder,
             [NotNull] IDiagnosticsLogger<DbLoggerCategory.Migrations> logger,
             [NotNull] IDiagnosticsLogger<DbLoggerCategory.Database.Command> commandLogger,
             [NotNull] IDatabaseProvider databaseProvider)
@@ -55,6 +57,7 @@ namespace Pomelo.EntityFrameworkCore.MySql.Migrations.Internal
                 connection,
                 sqlGenerationHelper,
                 currentContext,
+                conventionSetBuilder,
                 logger,
                 commandLogger,
                 databaseProvider)

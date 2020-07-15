@@ -103,7 +103,7 @@ namespace Pomelo.EntityFrameworkCore.MySql.Storage.Internal
         }
 
         protected override bool SupportsAmbientTransactions => true;
-        public override bool IsMultipleActiveResultSetsEnabled => false;
+        //public override bool IsMultipleActiveResultSetsEnabled => false;
 
         public override void EnlistTransaction(Transaction transaction)
         {

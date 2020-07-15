@@ -23,6 +23,8 @@ namespace Microsoft.EntityFrameworkCore.TestUtilities
 
         public LoggingDefinitions Definitions => null;
 
+        public IDbContextLogger DbContextLogger => throw new NotImplementedException();
+
         public void Log<TState>(
             LogLevel logLevel,
             EventId eventId,

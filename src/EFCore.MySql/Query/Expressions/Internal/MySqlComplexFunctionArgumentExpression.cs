@@ -55,7 +55,7 @@ namespace Pomelo.EntityFrameworkCore.MySql.Query.Expressions.Internal
                 : this;
         }
 
-        public override void Print(ExpressionPrinter expressionPrinter)
+        protected override void Print(ExpressionPrinter expressionPrinter)
             => expressionPrinter.Append(ToString());
 
         public override bool Equals(object obj)

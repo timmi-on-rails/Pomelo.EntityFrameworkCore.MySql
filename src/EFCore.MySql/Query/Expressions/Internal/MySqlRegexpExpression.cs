@@ -82,7 +82,7 @@ namespace Pomelo.EntityFrameworkCore.MySql.Query.Expressions.Internal
 
         public override string ToString() => $"{Match} REGEXP {Pattern}";
 
-        public override void Print(ExpressionPrinter expressionPrinter)
+        protected override void Print(ExpressionPrinter expressionPrinter)
             => expressionPrinter.Append(ToString());
     }
 }

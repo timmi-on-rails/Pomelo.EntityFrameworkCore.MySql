@@ -22,6 +22,7 @@ using Microsoft.EntityFrameworkCore.Diagnostics;
 using Pomelo.EntityFrameworkCore.MySql.Migrations;
 using Pomelo.EntityFrameworkCore.MySql.Query.ExpressionVisitors.Internal;
 using Pomelo.EntityFrameworkCore.MySql.Query.Internal;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 // ReSharper disable once CheckNamespace
 namespace Microsoft.Extensions.DependencyInjection
@@ -39,6 +40,7 @@ namespace Microsoft.Extensions.DependencyInjection
                 .TryAdd<IRelationalTransactionFactory, MySqlRelationalTransactionFactory>()
                 .TryAdd<ISqlGenerationHelper, MySqlSqlGenerationHelper>()
                 .TryAdd<IMigrationsAnnotationProvider, MySqlMigrationsAnnotationProvider>()
+                .TryAdd<IRelationalAnnotationProvider, MySqlRelationalAnnotationProvider>()
                 .TryAdd<IProviderConventionSetBuilder, MySqlConventionSetBuilder>()
                 .TryAdd<IModelValidator, MySqlModelValidator>()
                 .TryAdd<IUpdateSqlGenerator, MySqlUpdateSqlGenerator>()

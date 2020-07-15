@@ -9,38 +9,17 @@ using Pomelo.EntityFrameworkCore.MySql.Metadata.Internal;
 
 namespace Pomelo.EntityFrameworkCore.MySql.Migrations.Internal
 {
-    public class MySqlMigrationsAnnotationProvider : MigrationsAnnotationProvider
+    public class MySqlRelationalAnnotationProvider : RelationalAnnotationProvider
     {
-        public MySqlMigrationsAnnotationProvider([NotNull] MigrationsAnnotationProviderDependencies dependencies)
+        public MySqlRelationalAnnotationProvider([NotNull] RelationalAnnotationProviderDependencies dependencies)
             : base(dependencies)
         {
         }
 
-        //public override IEnumerable<IAnnotation> For(IModel model) => base.For(model);
-
-        //public override IEnumerable<IAnnotation> For(IEntityType entityType) => base.For(entityType);
-
-        //public override IEnumerable<IAnnotation> For(IIndex index)
-        //{
-        //    var isFullText = index.IsFullText();
-        //    if (isFullText.HasValue)
-        //    {
-        //        yield return new Annotation(
-        //            MySqlAnnotationNames.FullTextIndex,
-        //            isFullText.Value);
-        //    }
-
-        //    var isSpatial = index.IsSpatial();
-        //    if (isSpatial.HasValue)
-        //    {
-        //        yield return new Annotation(
-        //            MySqlAnnotationNames.SpatialIndex,
-        //            isSpatial.Value);
-        //    }
-        //}
-
-        public IEnumerable<IAnnotation> For(IProperty property)
+        public override IEnumerable<IAnnotation> For(IColumn column)
         {
+            IProperty property = column.PropertyMappings.Single().Property;
+
             if (property.GetValueGenerationStrategy() == MySqlValueGenerationStrategy.IdentityColumn)
             {
                 yield return new Annotation(
